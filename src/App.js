@@ -1,42 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
-function ParentComponent({ childTitle }) {
-  const [value, setValue] = React.useState(0);
-  const ChildTitle = React.useMemo(() => childTitle, [childTitle]);
-
+const App = () => {
   return (
-    <div className="Component">
-      <h1>
-        Parent State Value Change: <span className="Varible">{value}</span>
-      </h1>
-
-      <ChildComponent title={ChildTitle} />
-      <button
-        onClick={() => {
-          setValue((value) => value + 1);
-        }}
-      >
-        Update State on Parent ++
-      </button>
+    <div className="App">
+      <ParentComponent childTitle={"Child Component"} />
     </div>
   );
 }
 
-const ChildComponent = function ({ title }) {
+export default App
+
+const ParentComponent = ({ childTitle }) => {
+  const [value, setValue] = useState(0);
+
+  const onClickHandler = () => {
+    setValue((previousValue) => previousValue + 1);
+  };
+
   return (
     <div className="Component">
       <h1>
-        Child Title: <span className="Varible">{title}</span>
+        Parent State Value Change: <span className="Variable">{value}</span>
       </h1>
+      <ChildComponent title={childTitle} handleOnClick={onClickHandler} />
+    </div>
+  );
+}
+
+const ChildComponent = (props) => {
+  const { title, handleOnClick } = props;
+  return (
+    <div className="Component">
+      <h1>
+        Child Title: <span className="Variable">{title}</span>
+      </h1>
+      <button onClick={handleOnClick}>Update State on Parent ++</button>
     </div>
   );
 };
-
-export default function App() {
-  return (
-    <div>
-      <ParentComponent childTitle={"Child Component"} className="App" />
-    </div>
-  );
-}

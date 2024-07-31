@@ -1,22 +1,25 @@
 .App {
   text-align: center;
 }
+
 .Component {
   border: 3px dashed #01a76a;
   padding: 10px;
-  background-color: #ffffff;
+  background-color: skyblue;
   font-family: sans-serif;
   color: #626262;
 }
-.Component .Varible {
+
+.Variable {
   color: #fa492b;
-  /* #70ccd3; */
 }
+
 button {
   border: 5px solid #0c74df;
   margin: 10px;
   background-color: #0c74df;
   color: white;
-  font-weight: 200;
+  /* sus, seems the button can only be bold or normal, not light */
+  font-weight: 200;  
   border-radius: 5px;
 }
