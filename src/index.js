@@ -4,7 +4,8 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  //Not really a fix, but it prevents an extra render each change
+  <>
     <App />
-  </React.StrictMode>
+  </>
 );

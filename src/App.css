@@ -1,16 +1,18 @@
 .App {
   text-align: center;
+  background-color: skyblue;
 }
 
 .Component {
   border: 3px dashed #01a76a;
   padding: 10px;
-  background-color: skyblue;
+  /* background-color: skyblue; */
   font-family: sans-serif;
-  color: #626262;
-}
+  color: #626262; 
+} 
 
-.Variable {
+/* variable targets a Variable that is the child of a Component not really functional */
+.Variable {   
   color: #fa492b;
 }
 
