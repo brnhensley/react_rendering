@@ -7,7 +7,7 @@ const ParentComponent = ({ childTitle, handleTitleChange }) => {
   console.log("I'm rendering Parent again");
   const [value, setValue] = useState(0);
 
-  const onClickHandler = () => {
+  const countIncrementor = () => {
     setValue((previousValue) => previousValue + 1);
   };
 
@@ -16,8 +16,8 @@ const ParentComponent = ({ childTitle, handleTitleChange }) => {
       <h1>
         Parent State Value Change: <span className="Variable">{value}</span>
       </h1>
+      <button onClick={countIncrementor}>Update State on Parent ++</button>
 
-      <button onClick={onClickHandler}>Update State on Parent ++</button>
       <ChildComponent title={childTitle} />
 
       {/* new button for fun */}

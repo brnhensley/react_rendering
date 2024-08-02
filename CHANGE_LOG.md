@@ -38,7 +38,7 @@
 
 #### Remove Strict Mode
 - Each component renders twice twice in a row when using `React.StrictMode`. This was probably not a problem intended to be fixed, but to help with the challenge, but I removed But I replaced `<React.StrictMode>` with `<>` to minimize rerenders.
-- strict mode does not re-invoke render in production, probably no issue here
+- strict mode does not re-invoke render in production, probably no issue here but it made easier for me to look at the component rendering logs by removing it
 
 
 ### Other Misc Changes
