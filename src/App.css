@@ -1,22 +1,24 @@
 .App {
   text-align: center;
+  background-color: skyblue;
 }
+
 .Component {
   border: 3px dashed #01a76a;
   padding: 10px;
-  background-color: #ffffff;
   font-family: sans-serif;
-  color: #626262;
-}
-.Component .Varible {
+  color: #626262; 
+} 
+
+/* variable targets a Variable that is the child of a Component not really functional */
+.Variable {   
   color: #fa492b;
-  /* #70ccd3; */
 }
+
 button {
   border: 5px solid #0c74df;
   margin: 10px;
   background-color: #0c74df;
   color: white;
-  font-weight: 200;
   border-radius: 5px;
 }
