@@ -17,7 +17,7 @@ test("Parent passes child title text", () => {
 });
 
 test("onclick counter state updates", () => {
-  const { getByText, asFragment } = render(
+  render(
     <ParentComponent childTitle="winking face" handleTitleChange={() => {}} />
   );
   fireEvent.click(screen.getByText(/Update State on Parent/));
@@ -37,14 +37,14 @@ test("renders child title text", () => {
 });
 
 test("onclick title state updates", () => {
-  const { getByText, asFragment } = render(
-    <App />
-  );
+  render(<App />);
   fireEvent.click(screen.getByText(/Change Title/));
-  expect(screen.getByText("something else")).toBeInTheDocument();
+  expect(
+    screen.getByText("Now I'm a little happy guy! ~~( ᐛ )~~")
+  ).toBeInTheDocument();
   fireEvent.click(screen.getByText(/Change Title/));
   expect(screen.getByText("Child Component")).toBeInTheDocument();
-  
+
   // test rapid state changes are successful
   fireEvent.click(screen.getByText(/Change Title/));
   fireEvent.click(screen.getByText(/Change Title/));

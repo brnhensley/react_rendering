@@ -10,22 +10,21 @@
     - passed my `onClickHandler` to the child
     - moved button onto child
 - Checking out the CSS
-    - App rule for `text-align: center` isn't doing anything!
+    - App rule for `text-align: center` isn't working
         - Looks like the class is not in the right place to apply to the `App` component. Fixing that.
     - `.Component .Variable` doesn't seem to serve any function when it could be `.Variable`, but it works
         - `.Component .Variable` targets a `Variable` class that is the child of a `Component` class. It's not wrong, but not especially functional
     - Going down the line of rules to comment them out and look for problems, `button.font-weight` does nothing too. Looks like this might be a limitation of buttons? I can't get any font family to respect below `600` `font-weights` on a button
 - Everything appears to be rendering correctly.
-- Talking a step back to look at the unmodified code. I put in some console logs and a  debugger into the components to look at the render cycles
+- Talking a step back to look at the unmodified code. While walking a coworker through the problem I was trying to demonstrate the rendering cycle with console logs and a debugger in the components. Which revealed:
     - each component renders twice twice in a row:
-        - looked up reasons and `React.StrictMode` causes each `render()` func to be run twice. 
-    - button in `Parent` updates state on the parent, but when clicked the child re-renders as well even though no props changed! NOT IDEAL!
-    - I googled around and found this on stack overflow
-        > Use React memo -> this is the best way to prevent Rerendering even if you have functional components ,you simply need to wrap your components export with React.memo like : export default React.memo(MessageList)
+        - looked up reasons and `React.StrictMode` causes each component to render twice. Removing that for now.
+    - button in `Parent` updates state on the parent, but when clicked the child re-renders as well even though no props changed!
+        - I googled around and found this on stack overflow
+            > Use React memo -> this is the best way to prevent Rerendering even if you have functional components ,you simply need to wrap your components export with React.memo like : export default React.memo(MessageList)
         
-        Leading me to [this `React.memo()` doc](https://react.dev/reference/react/memo) and the child no longer rerenders when the button updates the parent!!
-        - Now I have to undo my refactor to show the rendering in fix.
-- I ran this through NRAI just to see if it could find and rendering problems and it listed 10 problems with the code... but every single one was completely wrong (lol)
+            Leading me to [this `React.memo()` doc](https://react.dev/reference/react/memo) and the child no longer rerenders when the button updates the parent!!
+        - Now I have to undo my 'improvement' to show the re-rendering fix.
 
 ### My Changes
 #### CSS rendering issues
@@ -54,3 +53,4 @@
 - broke components out into files and exported/imported them
 - added a button to change the Child title text. This serves no purpose but it makes more sense why you'd pass it as a prop now
 - Added some tests to confirm the `onClick` functions are updating the state and rendering the new state
+- Add `PropTypes` for type safety

@@ -5,7 +5,7 @@ import ParentComponent from "./ParentComponent";
 const App = () => {
   console.log("I'm rendering App again");
   const [picker, setPicker] = useState(true);
-  const childTitle = ["Child Component", "something else"];
+  const childTitle = ["Child Component", "Now I'm a little happy guy! ~~( ᐛ )~~"];
   const changeTitle = () => {
     setPicker((prevState) => !prevState);
   };

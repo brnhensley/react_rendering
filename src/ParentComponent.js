@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import ChildComponent from "./ChildComponent";
+import PropTypes from 'prop-types'
 
 const ParentComponent = ({ childTitle, handleTitleChange }) => {
   console.log("I'm rendering Parent again");
@@ -23,6 +24,11 @@ const ParentComponent = ({ childTitle, handleTitleChange }) => {
       <button onClick={handleTitleChange}>Change Title</button>
     </div>
   );
+};
+
+ParentComponent.propTypes = {
+  childTitle: PropTypes.string.isRequired,
+  handleTitleChange: PropTypes.func.isRequired,
 };
 
 export default ParentComponent;
