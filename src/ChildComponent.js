@@ -13,6 +13,6 @@ const ChildComponent = ({title}) => {
   );
 }
 
-// fix: adding memo so we don't rerender the child when the parent rerenders, 
-// unless the child's props change
+// fix: adding memo so we don't rerender the child when 
+// the parent rerenders, unless the child's props change
 export default memo(ChildComponent)

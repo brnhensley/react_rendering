@@ -39,6 +39,7 @@
 
 #### Remove Strict Mode
 - Each component renders twice twice in a row when using `React.StrictMode`. This was probably not a problem intended to be fixed, but to help with the challenge, but I removed But I replaced `<React.StrictMode>` with `<>` to minimize rerenders.
+- strict mode does not re-invoke render in production, probably no issue here
 
 
 ### Other Misc Changes
@@ -52,3 +53,4 @@
 - intentionally left in console logs to demo renders quicker
 - broke components out into files and exported/imported them
 - added a button to change the Child title text. This serves no purpose but it makes more sense why you'd pass it as a prop now
+- Added some tests to confirm the `onClick` functions are updating the state and rendering the new state
