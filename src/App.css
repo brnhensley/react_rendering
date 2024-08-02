@@ -6,7 +6,6 @@
 .Component {
   border: 3px dashed #01a76a;
   padding: 10px;
-  /* background-color: skyblue; */
   font-family: sans-serif;
   color: #626262; 
 } 
@@ -21,7 +20,5 @@ button {
   margin: 10px;
   background-color: #0c74df;
   color: white;
-  /* sus, seems the button can only be bold or normal, not light */
-  font-weight: 200;  
   border-radius: 5px;
 }
